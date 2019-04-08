@@ -1,5 +1,9 @@
-Introduction
-------------
+How to DCmapR
+================
+Edward ‘Bingo’ LaHaye
+2019-04-08
+
+## Introduction
 
 Hi and welcome to my first package, DCmapR. This package was first
 created in response to the 2nd annual hackathon at The Catholic
@@ -16,17 +20,16 @@ will help you do a couple of things:
 3.  Calculate the centroids for both wards and precincts so that you can
     easily label them
 
-4.  Create detailed and beautiful graphs of Washington, DC!
+4.  Create detailed and beautiful graphs of Washington, DC\!
 
 These objectives will be accomplished through each of their own
 functions that I will walk you through.
 
-get\_Ward
----------
+## get\_Ward
 
 This is a pretty basic function that gives you either the shape data or
-the dataframe data. To select the dataframe output just put
-`dataframe = TRUE` as the argument, or you can leave it blank.
+the dataframe data. To select the dataframe output just put `dataframe =
+TRUE` as the argument, or you can leave it blank.
 
 ``` r
 library(DCmapR)
@@ -49,7 +52,7 @@ mapOG <- ggplot() +
 mapOG
 ```
 
-![](DCMAPReADME_files/figure-markdown_github/unnamed-chunk-1-1.png)
+![](DCMAPReADME_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
 And if you want to you can use the shape file in the same way for
 plotting, or you can also extract the data from it using `data.frame` on
@@ -82,21 +85,20 @@ plot1
 plot2
 ```
 
-![](DCMAPReADME_files/figure-markdown_github/unnamed-chunk-2-1.png)![](DCMAPReADME_files/figure-markdown_github/unnamed-chunk-2-2.png)
+![](DCMAPReADME_files/figure-gfm/unnamed-chunk-2-1.png)![](DCMAPReADME_files/figure-gfm/unnamed-chunk-2-2.png)
 
 Now as you can see from this, we can make nice looking graphs but we
-need labels for them! And my solution comes with the next function:
+need labels for them\! And my solution comes with the next function:
 get\_centroid
 
-get\_centroid
--------------
+## get\_centroid
 
 get\_centroid came about to help with labeling and getting those labels
 into a pleasing spot for the wards. I wanted to get into the center for
 each shape so I used `gCentroid` from `rgeos` to get them. You can get
 the centroids of either the Wards or Precincts depending if you select
 `TRUE` or `FALSE` for one of the options. Selecting neither will get you
-nothing. Now lets get these labels on there!
+nothing. Now lets get these labels on there\!
 
 ``` r
 Wardlabs <- get_centroid(Ward = TRUE)
@@ -105,20 +107,19 @@ plot1 +
   geom_text(data = Wardlabs, aes(x, y, label = Ward), size = 3)
 ```
 
-![](DCMAPReADME_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](DCMAPReADME_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ``` r
 plot2 + 
   geom_text(data = Wardlabs, aes(x, y, label = Ward), size = 3)
 ```
 
-![](DCMAPReADME_files/figure-markdown_github/unnamed-chunk-3-2.png)
+![](DCMAPReADME_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
 
-Now there is a bit more information for the maps! The next step is to
+Now there is a bit more information for the maps\! The next step is to
 dive deeper into these wards and look into the precincts with in them.
 
-get\_Precinct
--------------
+## get\_Precinct
 
 This function was designed to get a better perspective on the wards
 themselves and how their parts added up to the whole of DC. You can use
@@ -134,7 +135,7 @@ mapOG +
   geom_polygon(data = PrecinctDF, aes(x = long, y = lat, group = group), inherit.aes = FALSE, fill = NA, colour = 'black')
 ```
 
-![](DCMAPReADME_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](DCMAPReADME_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 This map is looking great, now lets zoom into Ward 8.
 
@@ -148,7 +149,7 @@ ggplot() +
   coord_quickmap()
 ```
 
-![](DCMAPReADME_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](DCMAPReADME_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ``` r
 #Use over to get the overlapping datapoints
@@ -160,14 +161,13 @@ ggplot() +
   ggtitle("Ward 8 with Precincts")
 ```
 
-![](DCMAPReADME_files/figure-markdown_github/unnamed-chunk-5-2.png)
+![](DCMAPReADME_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
 Refining the method of defining which precincts are in each ward will be
 in the next version of DCmapR. As you can see it gets pretty close, and
 with some tweaking could turn into a nice chloropleth map.
 
-Conclusion
-----------
+## Conclusion
 
 Overall I hope you enjoy using this package as I enjoyed developing it.
 All info was acquired from ([via](http://opendata.dc.gov/)), so go get

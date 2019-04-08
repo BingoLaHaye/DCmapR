@@ -2,9 +2,7 @@
 title: "How to DCmapR"
 author: "Edward 'Bingo' LaHaye"
 date: "`r Sys.Date()`"
-output: 
-  md_document:
-    variant: markdown_github
+output: github_document
 ---
 ## Introduction
 

@@ -52,7 +52,7 @@ mapOG <- ggplot() +
 mapOG
 ```
 
-![](DCMAPReADME_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
 And if you want to you can use the shape file in the same way for
 plotting, or you can also extract the data from it using `data.frame` on
@@ -85,7 +85,7 @@ plot1
 plot2
 ```
 
-![](DCMAPReADME_files/figure-gfm/unnamed-chunk-2-1.png)![](DCMAPReADME_files/figure-gfm/unnamed-chunk-2-2.png)
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)![](README_files/figure-gfm/unnamed-chunk-2-2.png)
 
 Now as you can see from this, we can make nice looking graphs but we
 need labels for them\! And my solution comes with the next function:
@@ -104,17 +104,17 @@ nothing. Now lets get these labels on there\!
 Wardlabs <- get_centroid(Ward = TRUE)
 # And then you just add it in!
 plot1 + 
-  geom_text(data = Wardlabs, aes(x, y, label = Ward), size = 3)
+  geom_text(data = Wardlabs, aes(x, y, label = Ward), size = 5)
 ```
 
-![](DCMAPReADME_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ``` r
 plot2 + 
-  geom_text(data = Wardlabs, aes(x, y, label = Ward), size = 3)
+  geom_text(data = Wardlabs, aes(x, y, label = Ward), size = 5)
 ```
 
-![](DCMAPReADME_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
 
 Now there is a bit more information for the maps\! The next step is to
 dive deeper into these wards and look into the precincts with in them.
@@ -135,7 +135,7 @@ mapOG +
   geom_polygon(data = PrecinctDF, aes(x = long, y = lat, group = group), inherit.aes = FALSE, fill = NA, colour = 'black')
 ```
 
-![](DCMAPReADME_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 This map is looking great, now lets zoom into Ward 8.
 
@@ -149,7 +149,7 @@ ggplot() +
   coord_quickmap()
 ```
 
-![](DCMAPReADME_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ``` r
 #Use over to get the overlapping datapoints
@@ -161,7 +161,7 @@ ggplot() +
   ggtitle("Ward 8 with Precincts")
 ```
 
-![](DCMAPReADME_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
 Refining the method of defining which precincts are in each ward will be
 in the next version of DCmapR. As you can see it gets pretty close, and

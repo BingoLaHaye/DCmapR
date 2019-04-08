@@ -2,7 +2,11 @@
 title: "How to DCmapR"
 author: "Edward 'Bingo' LaHaye"
 date: "`r Sys.Date()`"
-output: md_document
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{"How to DCmapR"}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include = FALSE}
@@ -82,9 +86,9 @@ get_centroid came about to help with labeling and getting those labels into a pl
 Wardlabs <- get_centroid(Ward = TRUE)
 # And then you just add it in!
 plot1 + 
-  geom_text(data = Wardlabs, aes(x, y, label = Ward), size = 5)
+  geom_text(data = Wardlabs, aes(x, y, label = Ward), size = 3)
 plot2 + 
-  geom_text(data = Wardlabs, aes(x, y, label = Ward), size = 5)
+  geom_text(data = Wardlabs, aes(x, y, label = Ward), size = 3)
 ```
 
 Now there is a bit more information for the maps! The next step is to dive deeper into these wards and look into the precincts with in them.

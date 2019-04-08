@@ -1,0 +1,26 @@
+Package: DCmapR
+Type: Package
+Title: Easy mapping of DC Wards and Precincts
+Version: 0.1.0
+Author: Edward "Bingo" LaHaye
+Maintainer: Edward "Bingo" LaHaye <lahayesolutions@gmail.com>
+Description: More about what it does (maybe more than one line)
+    DCmapR's purpose is to aid in mapping Washington DC's wards and precincts as well as labeling them and 
+    plotting spatial data points. This package works with many different mapping packages, such as leaflet,
+    ggplot2 and Plotly/Mapbox. You are also welcome to attatch the dataframes with others to add more detail to the region.
+    The idea came from CUA's 2nd Hackathon for social good and was used to map crime data in the different wards compared to voter data.
+    The original data comes from Opendata.dc.gov
+    Use four spaces when indenting paragraphs within the Description.
+License: GNU AGPLv3
+Encoding: UTF-8
+LazyData: true
+Depends:
+    sp
+RoxygenNote: 6.1.1
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+URL: https://github.com/BingoLaHaye/DCmapR
+BugReports: https://github.com/BingoLaHaye/DCmapR/issues

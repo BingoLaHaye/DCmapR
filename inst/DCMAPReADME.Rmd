@@ -2,20 +2,10 @@
 title: "How to DCmapR"
 author: "Edward 'Bingo' LaHaye"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{"How to DCmapR"}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output: 
+  md_document:
+    variant: markdown_github
 ---
-
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
-
 ## Introduction
 
 Hi and welcome to my first package, DCmapR. This package was first created in response to the 2nd annual hackathon at The Catholic University of America School of Engineering. Me and my team ran into the problem of plotting our points among the different wards and precincts of DC, and so this package was born from that struggle. This package will help you do a couple of things:

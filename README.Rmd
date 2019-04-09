@@ -92,7 +92,9 @@ mapOG +
   geom_polygon(data = PrecinctDF, aes(x = long, y = lat, group = group), inherit.aes = FALSE, fill = NA, colour = 'black')
 ```
 
-This map is looking great, now lets zoom into Ward 8.
+## Future Features
+
+Along the development I came accross some roadblocks in zooming in with the precincts and wards as they don't have labels for which Ward they belong in. So right now we are working on catagorizing all of the precincts so that they word properly with wards if you so wish to zoom in on each ward.
 
 ```{r message=FALSE, warning=FALSE}
 #Trim to ward 8, I'm not sure why its polygon number is 1
@@ -111,7 +113,7 @@ ggplot() +
   ggtitle("Ward 8 with Precincts")
 ```
 
-Refining the method of defining which precincts are in each ward will be in the next version of DCmapR. As you can see it gets pretty close, and with some tweaking could turn into a nice chloropleth map. 
+A refined precincts dataset will be in the next version of DCmapR. As you can see it gets pretty close, and with some tweaking could turn into a nice chloropleth map. 
 
 ## Conclusion
 

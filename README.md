@@ -1,7 +1,9 @@
 How to DCmapR
 ================
 Edward ‘Bingo’ LaHaye
-2019-04-08
+2019-04-09
+
+<img src="inst/DCmapRSMALL.png" align="right" />
 
 ## Introduction
 
@@ -33,17 +35,9 @@ TRUE` as the argument, or you can leave it blank.
 
 ``` r
 library(DCmapR)
-```
-
-    ## Loading required package: sp
-
-    ## Welcome to DCmapR
-
-``` r
 # For example lets get the dataframe for wards
 WardsDF <- get_Ward(dataframe = TRUE)
 # And you can easily plot this using ggplot2
-library(ggplot2)
 mapOG <- ggplot() +
   geom_polygon(data = WardsDF, aes(x = long, y = lat, group = group, fill = factor(Ward)),
                col  = "black", alpha = 0.3, size = 1) + 
@@ -132,12 +126,19 @@ the shapefile.
 PrecinctDF <- get_Precinct(dataframe = TRUE)
 #Take the first map we made and layer onto it
 mapOG + 
-  geom_polygon(data = PrecinctDF, aes(x = long, y = lat, group = group), inherit.aes = FALSE, fill = NA, colour = 'black')
+  geom_polygon(data = PrecinctDF, aes(x = long, y = lat, group = group), inherit.aes = FALSE, fill = NA, colour = 'black') + 
+  ggtitle("DC with Wards and Precincts")
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
-This map is looking great, now lets zoom into Ward 8.
+## Future Features
+
+Along the development I came accross some roadblocks in zooming in with
+the precincts and wards as they don’t have labels for which Ward they
+belong in. So right now we are working on catagorizing all of the
+precincts so that they word properly with wards if you so wish to zoom
+in on each ward.
 
 ``` r
 #Trim to ward 8, I'm not sure why its polygon number is 1
@@ -163,9 +164,9 @@ ggplot() +
 
 ![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
-Refining the method of defining which precincts are in each ward will be
-in the next version of DCmapR. As you can see it gets pretty close, and
-with some tweaking could turn into a nice chloropleth map.
+A refined precincts dataset will be in the next version of DCmapR. As
+you can see it gets pretty close, and with some tweaking could turn into
+a nice chloropleth map.
 
 ## Conclusion
 

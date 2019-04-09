@@ -1,9 +1,11 @@
 ---
-title: "How to DCmapR"
+title: "How to DCmapR" 
 author: "Edward 'Bingo' LaHaye"
 date: "`r Sys.Date()`"
 output: github_document
 ---
+<img src="inst/DCmapRSMALL.png" align="right" />
+
 ## Introduction
 
 Hi and welcome to my first package, DCmapR. This package was first created in response to the 2nd annual hackathon at The Catholic University of America School of Engineering. Me and my team ran into the problem of plotting our points among the different wards and precincts of DC, and so this package was born from that struggle. This package will help you do a couple of things:
@@ -22,12 +24,11 @@ These objectives will be accomplished through each of their own functions that I
 
 This is a pretty basic function that gives you either the shape data or the dataframe data. To select the dataframe output just put `dataframe = TRUE` as the argument, or you can leave it blank.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(DCmapR)
 # For example lets get the dataframe for wards
 WardsDF <- get_Ward(dataframe = TRUE)
 # And you can easily plot this using ggplot2
-library(ggplot2)
 mapOG <- ggplot() +
   geom_polygon(data = WardsDF, aes(x = long, y = lat, group = group, fill = factor(Ward)),
                col  = "black", alpha = 0.3, size = 1) + 
@@ -89,7 +90,8 @@ This function was designed to get a better perspective on the wards themselves a
 PrecinctDF <- get_Precinct(dataframe = TRUE)
 #Take the first map we made and layer onto it
 mapOG + 
-  geom_polygon(data = PrecinctDF, aes(x = long, y = lat, group = group), inherit.aes = FALSE, fill = NA, colour = 'black')
+  geom_polygon(data = PrecinctDF, aes(x = long, y = lat, group = group), inherit.aes = FALSE, fill = NA, colour = 'black') + 
+  ggtitle("DC with Wards and Precincts")
 ```
 
 ## Future Features
